@@ -28,7 +28,7 @@ app.get("/", function (req, res) {
 app.post("/api/shorturl", (req, res) => {
   const { url } = req.body;
   if (!url) {
-    return res.status(404).send("No Url Provided");
+    return res.status(404).json({ error: "invalid url" });
   }
   const hostname = new URL(url).hostname;
 
